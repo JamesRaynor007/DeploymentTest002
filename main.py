@@ -33,6 +33,10 @@ meses_map = {
 
 app = FastAPI()
 
+@app.get("/")
+def read_root():
+    return {"message": "Bienvenido a la API de películas. Usa el endpoint /peliculas/?mes=nombre_del_mes para obtener datos."}
+
 @app.get("/peliculas/")
 def get_peliculas(mes: str):
     # Convertir el mes a minúsculas para evitar problemas de mayúsculas
